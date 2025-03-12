@@ -16,6 +16,10 @@ jobs:
     
     
     steps:
+      - name: Check Token Permissions
+        run: |
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/${{ github.repository }}/actions/permissions
       - name: Notify Admin
         run: echo "Notification sent to admin for approval."        
   
