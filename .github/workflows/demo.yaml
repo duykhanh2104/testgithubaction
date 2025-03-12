@@ -27,7 +27,7 @@ jobs:
           additional-denied-words: ''
 
   run-tests:
-    needs: manual-approval
+    needs: notify-and-approve
     runs-on: ubuntu-latest
 
     steps:
