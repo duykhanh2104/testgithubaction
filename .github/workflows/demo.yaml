@@ -10,6 +10,10 @@ jobs:
   notify-and-approve:
     runs-on: ubuntu-latest
     name: Build Plan
+    permissions:
+      issues: write  # Grant write permission for issues
+      contents: read  # Grant read permission for repository contents
+    
     
     steps:
       - name: Notify Admin
@@ -19,14 +23,14 @@ jobs:
         uses: trstringer/manual-approval@v1
         with:
           #secret: ${{ secrets.APPTOKEN }}          
-          secret: ${{ github.TOKEN }}
+          ${{ secrets.GITHUB_TOKEN }}  # Use the GITHUB_TOKEN
           approvers: duykhanh2104 # Replace with GitHub usernames
           minimum-approvals: 1
           issue-title: "Manual Approval Required for Action Apply"
           issue-body: "Please approve or deny the deployment."
           additional-approved-words: ''
           additional-denied-words: ''
-
+          exclude-workflow-initiator-as-approver: false
   run-tests:
     needs: notify-and-approve
     runs-on: ubuntu-latest
