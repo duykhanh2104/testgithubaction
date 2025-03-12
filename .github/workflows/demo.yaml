@@ -26,8 +26,8 @@ jobs:
       - name: Await Manual Approval
         uses: trstringer/manual-approval@v1
         with:
-          #secret: ${{ secrets.APPTOKEN }}          
-          secret: ${{ secrets.GITHUB_TOKEN }}  # Use the GITHUB_TOKEN
+          secret: ${{ secrets.APPTOKEN }}          
+          #secret: ${{ secrets.GITHUB_TOKEN }}  # Use the GITHUB_TOKEN
           approvers: duykhanh2104 # Replace with GitHub usernames
           minimum-approvals: 1
           issue-title: "Manual Approval Required for Action Apply"
