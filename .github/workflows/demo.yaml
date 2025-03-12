@@ -19,7 +19,7 @@ jobs:
         uses: trstringer/manual-approval@v1
         with:
           secret: ${{ secrets.APPTOKEN }}          
-          approvers: duykhanh2104 # Replace with GitHub usernames
+          approvers: github.com/duykhanh2104 # Replace with GitHub usernames
           minimum-approvals: 1
           issue-title: "Manual Approval Required for Action Apply"
           issue-body: "Please approve or deny the deployment."
